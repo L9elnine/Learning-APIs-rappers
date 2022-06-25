@@ -1,6 +1,10 @@
 const express = require('express')
 const app = express()
-const PORT = 8000
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
+
 
 const rappers = {
 
@@ -39,6 +43,6 @@ app.get('/api/:name', (request, response) =>{
 
 })
 
-app.listen(PORT, () =>{
-    console.log(`The server is now running on port ${PORT}! Betta go catch it!`)
+app.listen(port, () =>{
+    console.log(`The server is now running on port ${port}! Betta go catch it!`)
 })
